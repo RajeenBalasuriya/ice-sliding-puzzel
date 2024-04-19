@@ -104,7 +104,15 @@ public class RandomMazeGraph {
     public void printAdjacencyMatrix() {
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                System.out.print(adjacencyMatrix[i][j] + " ");
+                if(startRow==i && startCol==j){
+                    System.out.print("S" + " ");
+                } else if (endRow==i && endCol==j) {
+                    System.out.print("F" + " ");
+                }
+                else{
+                    System.out.print(adjacencyMatrix[i][j] + " ");
+                }
+
             }
             System.out.println();
         }
