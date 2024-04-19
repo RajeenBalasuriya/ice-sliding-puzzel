@@ -109,6 +109,32 @@ public class RandomMazeGraph {
             System.out.println();
         }
     }
+    public void findAndPrintShortestPath() {
+        ShortestPathFinder pathFinder = new ShortestPathFinder(maze);
+        int[] start = {startRow, startCol};
+        int[] end = {endRow, endCol};
+        List<int[]> shortestPath = pathFinder.findShortestPath(start, end);
+
+        if (!shortestPath.isEmpty()) {
+            printPath(shortestPath);
+        } else {
+            System.out.println("No path found.");
+        }
+    }
+
+    private void printPath(List<int[]> path) {
+        System.out.println("Shortest path from start to end destination:");
+        for (int i = 0; i < path.size(); i++) {
+            int[] cell = path.get(i);
+            if(i==0){
+                System.out.println((i + 1) + ". Start from (" + (cell[0] + 1) + "," + (cell[1] + 1) + ")");
+            }else{
+                System.out.println((i + 1) + ". Move to (" + (cell[0] + 1) + "," + (cell[1] + 1) + ")");
+            }
+
+        }
+        System.out.println((path.size() + 1) + ". Done!");
+    }
 
     // Getters for start and end positions
     public int getStartRow() {
@@ -125,5 +151,17 @@ public class RandomMazeGraph {
 
     public int getEndCol() {
         return endCol;
+    }
+
+    public int getNumRows(){
+        return  numRows;
+    }
+
+    public int getNumCols(){
+        return numCols;
+    }
+
+    public char[][] getAdjacencyMatrix() {
+        return maze;
     }
 }

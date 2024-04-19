@@ -1,4 +1,5 @@
 import java.nio.file.Path;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +16,10 @@ public class Main {
             // Create an instance of RandomMazeGraph and pass the maze file
             RandomMazeGraph mazeGraph = new RandomMazeGraph(randomMazeFile.toString());
             mazeGraph.printAdjacencyMatrix();
+            mazeGraph.findAndPrintShortestPath();
+            System.out.println();
+
+
 
 
 
